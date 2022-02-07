@@ -57,7 +57,7 @@ function parseHTML(data: string) {
 				childrenNode: [],
 				parentNode: parent,
 				textContent: "",
-				attributes: parseAttribute(token[3]),
+				attributes: parseAttribute(token[3] + " "),
 				DocumentPosition: position,
 				isSelfClosingTag: false
 			}
@@ -93,4 +93,5 @@ function parseHTML(data: string) {
 	return tags[0]
 }
 
-let result_tags = parseHTML("<p><div>hoge</div></p>")
+let result_tags = parseHTML("<p><div class='hoge'>hoge</div></p>")
+console.log(result_tags.childrenNode[0].childrenNode)
